@@ -5,7 +5,7 @@ $config = [
     "database" => [
             "host" => "localhost",
             "port" => 3306,
-        "database" => "phlog",
+        "database" => "can_ref",
         "username" => "root",
         "password" => "toor"
     ],
