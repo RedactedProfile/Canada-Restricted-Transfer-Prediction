@@ -1,8 +1,7 @@
 create table reference_table
 (
-  id                      char(36) not null
+  reference               int(10) not null
     primary key,
-  reference               int(10) not null,
   date_purchased          date default '0000-00-00',
   date_transfer_requested date     not null,
   is_private              smallint(1) not null default 0,
@@ -11,6 +10,4 @@ create table reference_table
   owner_purchaser         varchar(255),
   date_created            datetime          default CURRENT_TIMESTAMP null,
   date_updated            datetime          default CURRENT_TIMESTAMP null on update CURRENT_TIMESTAMP,
-  constraint idx_email
-    unique (reference)
 ) comment 'reference table';

@@ -6,21 +6,16 @@ use Core\BaseController;
 use App\Repositories;
 
 require_once __DIR__ . '/../../Core/BaseController.php';
-require_once __DIR__ . '/../Repositories/PostRepository.php';
+require_once __DIR__ . '/../Repositories/RefRepository.php';
 
 class HomeController extends BaseController
 {
     public function index()
     {
-        $posts = Repositories\PostRepository::getPosts();
+        $reference = Repositories\RefRepository::getReference(5933703);
 
         return $this->render('home', [
-            'posts' => $posts
+            'reference' => $reference
         ]);
-    }
-
-    public function about()
-    {
-        return $this->render('about');
     }
 }

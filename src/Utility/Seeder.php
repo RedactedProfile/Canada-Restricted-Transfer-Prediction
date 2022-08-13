@@ -108,7 +108,7 @@ $known_transfer_lookup = [
 ];
 
 $db->beginTransaction();
-$insert_query = 'INSERT INTO reference_table (id, reference, date_transfer_requested) VALUES (?, ?, ?)';
+$insert_query = 'INSERT INTO reference_table (reference, date_transfer_requested) VALUES (?, ?)';
 $insert_sth = $db->prepare($insert_query);
 var_dump("Preparing queries");
 foreach(range(5881982, 5971556) as $ref) {
@@ -127,7 +127,6 @@ foreach(range(5881982, 5971556) as $ref) {
 
 
     $insert_sth->execute([
-        UUID::v4(),
         $ref,
         date('Y-m-d', strtotime($last_ref_date)),
     ]);
