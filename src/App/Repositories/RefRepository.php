@@ -27,22 +27,4 @@ class RefRepository
 
         return $references;
     }
-
-    public static function getPost($id)
-    {
-        $db = Database::Get()->getConnection();
-
-        $post = [];
-
-        $query = 'SELECT * FROM posts WHERE id = :id AND published = 1 AND NOW() > date_published';
-        $h = $db->prepare($query);
-        $h->execute([':id' => $id]);
-        $posts = $h->fetchAll();
-
-        foreach($posts as $row) {
-            $post = new Reference($row);
-        }
-
-        return $post;
-    }
 }
